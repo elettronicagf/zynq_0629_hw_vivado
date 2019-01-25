@@ -11,16 +11,16 @@
 #                                     Reach Further™
 #
 # ----------------------------------------------------------------------------
-# 
+#
 #  This design is the property of Avnet.  Publication of this
 #  design is not authorized without written consent from Avnet.
-# 
+#
 #  Please direct any questions to the Avnet Technical Community:
 #     http://minized.org/forums/zed-english-forum
-# 
+#
 #  Product information is available at:
 #     http://minized.org
-# 
+#
 #  Disclaimer:
 #     Avnet, Inc. makes no warranty for the use of this code or design.
 #     This code is provided  "As Is". Avnet, Inc assumes no responsibility for
@@ -29,24 +29,24 @@
 #     disclaims any implied warranties of fitness for a particular purpose.
 #                      Copyright(c) 2017 Avnet, Inc.
 #                              All rights reserved.
-# 
+#
 # ----------------------------------------------------------------------------
-# 
+#
 #  Create Date:         June 14, 2017
 #  Design Name:         MiniZed Foundation
 #  Module Name:         bitstream_compression_enable.xdc
 #  Project Name:        minized_foundation
 #  Target Devices:      Xilinx Zynq-7000
 #  Hardware Boards:     MiniZed
-# 
+#
 #  Tool versions:       Xilinx Vivado 2017.1
-# 
+#
 #  Description:         Enable bitstream compression
-# 
-#  Dependencies:        
+#
+#  Dependencies:
 #
 #  Revision:            June 14, 2017: 1.00 Initial version
-# 
+#
 # ----------------------------------------------------------------------------
 #
 # Enable bitstream compression
@@ -55,3 +55,9 @@ set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 
 
 
+
+set_property PACKAGE_PIN M12 [get_ports AUDIO_CLK]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets clk]

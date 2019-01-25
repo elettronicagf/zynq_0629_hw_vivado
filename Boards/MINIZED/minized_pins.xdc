@@ -165,10 +165,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports PMOD2_PIN10]
 #######################################################################
 # Microphone
 #######################################################################
-set_property PACKAGE_PIN L12 [get_ports AUDIO_CLK]
 set_property IOSTANDARD LVCMOS33 [get_ports AUDIO_CLK]
 
-set_property PACKAGE_PIN M12 [get_ports AUDIO_DAT]
+set_property PACKAGE_PIN L12 [get_ports AUDIO_DAT]
 set_property IOSTANDARD LVCMOS33 [get_ports AUDIO_DAT]
 
 #######################################################################
@@ -215,3 +214,4 @@ set_property IOSTANDARD LVCMOS33 [get_ports BT_REG_ON]
 
 set_property PACKAGE_PIN H14 [get_ports BT_HOST_WAKE]
 set_property IOSTANDARD LVCMOS33 [get_ports BT_HOST_WAKE]
+

@@ -8,3 +8,4 @@ set_property IOSTANDARD LVCMOS33 [get_ports pl_led_r_tri_o]
 
 set_property PACKAGE_PIN E13 [get_ports pl_led_g_tri_o]
 set_property IOSTANDARD LVCMOS33 [get_ports pl_led_g_tri_o]
+

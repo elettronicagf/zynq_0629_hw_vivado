@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Thu Jan 24 10:24:23 2019
+--Date        : Fri Jan 25 11:41:35 2019
 --Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 --Command     : generate_target minized_foundation_wrapper.bd
 --Design      : minized_foundation_wrapper
@@ -139,7 +139,6 @@ architecture STRUCTURE of minized_foundation_wrapper is
     WL_SDIO_CLK : out STD_LOGIC;
     WL_SDIO_CMD : inout STD_LOGIC;
     WL_SDIO_DAT : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    pl_sw_1bit_tri_i : in STD_LOGIC;
     iic_rtl_scl_i : in STD_LOGIC;
     iic_rtl_scl_o : out STD_LOGIC;
     iic_rtl_scl_t : out STD_LOGIC;
@@ -161,6 +160,7 @@ architecture STRUCTURE of minized_foundation_wrapper is
     DDR_dq : inout STD_LOGIC_VECTOR ( 15 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 1 downto 0 );
     DDR_dqs_p : inout STD_LOGIC_VECTOR ( 1 downto 0 );
+    pl_sw_1bit_tri_i : in STD_LOGIC;
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     FIXED_IO_ddr_vrn : inout STD_LOGIC;
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
