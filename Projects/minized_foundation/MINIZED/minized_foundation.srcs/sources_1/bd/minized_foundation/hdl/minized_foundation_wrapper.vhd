@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Fri Jan 25 11:41:35 2019
+--Date        : Fri Feb  1 17:10:57 2019
 --Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 --Command     : generate_target minized_foundation_wrapper.bd
 --Design      : minized_foundation_wrapper
@@ -84,7 +84,7 @@ entity minized_foundation_wrapper is
     WL_SDIO_DAT : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     iic_rtl_scl_io : inout STD_LOGIC;
     iic_rtl_sda_io : inout STD_LOGIC;
-    pl_sw_1bit_tri_i : in STD_LOGIC
+    pl_sw_1bit_tri_io : inout STD_LOGIC_VECTOR ( 0 to 0 )
   );
 end minized_foundation_wrapper;
 
@@ -160,13 +160,15 @@ architecture STRUCTURE of minized_foundation_wrapper is
     DDR_dq : inout STD_LOGIC_VECTOR ( 15 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 1 downto 0 );
     DDR_dqs_p : inout STD_LOGIC_VECTOR ( 1 downto 0 );
-    pl_sw_1bit_tri_i : in STD_LOGIC;
+    pl_sw_1bit_tri_i : in STD_LOGIC_VECTOR ( 0 to 0 );
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     FIXED_IO_ddr_vrn : inout STD_LOGIC;
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC
+    FIXED_IO_ps_porb : inout STD_LOGIC;
+    pl_sw_1bit_tri_o : out STD_LOGIC_VECTOR ( 0 to 0 );
+    pl_sw_1bit_tri_t : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component minized_foundation;
   component IOBUF is
@@ -183,6 +185,10 @@ architecture STRUCTURE of minized_foundation_wrapper is
   signal iic_rtl_sda_i : STD_LOGIC;
   signal iic_rtl_sda_o : STD_LOGIC;
   signal iic_rtl_sda_t : STD_LOGIC;
+  signal pl_sw_1bit_tri_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal pl_sw_1bit_tri_io_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal pl_sw_1bit_tri_o_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal pl_sw_1bit_tri_t_0 : STD_LOGIC_VECTOR ( 0 to 0 );
 begin
 iic_rtl_scl_iobuf: component IOBUF
      port map (
@@ -275,6 +281,15 @@ minized_foundation_i: component minized_foundation
       iic_rtl_sda_i => iic_rtl_sda_i,
       iic_rtl_sda_o => iic_rtl_sda_o,
       iic_rtl_sda_t => iic_rtl_sda_t,
-      pl_sw_1bit_tri_i => pl_sw_1bit_tri_i
+      pl_sw_1bit_tri_i(0) => pl_sw_1bit_tri_i_0(0),
+      pl_sw_1bit_tri_o(0) => pl_sw_1bit_tri_o_0(0),
+      pl_sw_1bit_tri_t(0) => pl_sw_1bit_tri_t_0(0)
+    );
+pl_sw_1bit_tri_iobuf_0: component IOBUF
+     port map (
+      I => pl_sw_1bit_tri_o_0(0),
+      IO => pl_sw_1bit_tri_io(0),
+      O => pl_sw_1bit_tri_i_0(0),
+      T => pl_sw_1bit_tri_t_0(0)
     );
 end STRUCTURE;

@@ -57,6 +57,9 @@ set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 
 
 set_property PACKAGE_PIN M12 [get_ports AUDIO_CLK]
+
+set_property PACKAGE_PIN E11 [get_ports {pl_sw_1bit_tri_io[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pl_sw_1bit_tri_io[0]}]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
